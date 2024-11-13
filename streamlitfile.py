@@ -5,7 +5,8 @@
 #load the packages
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
+import plotly.express as px
 
 # Load the sample marketing data
 data = pd.read_csv('samplepython.csv')
@@ -22,8 +23,10 @@ category_metrics = data.groupby('Category')[selected_metric].sum()
 # Bar chart to display the results using Matplotlib
 st.write(f'Total {selected_metric} by Category')
 
-fig, ax = plt.subplots(figsize=(10, 6))
-category_metrics.plot(kind='bar', ax=ax)
-ax.set_xlabel('Category')
-ax.set_ylabel(selected_metric)
+#fig, ax = plt.subplots(figsize=(10, 6))
+#category_metrics.plot(kind='bar', ax=ax)
+#ax.set_xlabel('Category')
+#ax.set_ylabel(selected_metric)
+fig = px.bar(category_metrics, x='Categora', y=selected_metric)
+
 st.pyplot(fig)
