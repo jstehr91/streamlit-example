@@ -5,8 +5,9 @@
 #load the packages
 import streamlit as st
 import pandas as pd
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import plotly.express as px
+import plotly
 
 # Load the sample marketing data
 data = pd.read_csv('samplepython.csv')
@@ -27,6 +28,6 @@ st.write(f'Total {selected_metric} by Category')
 #category_metrics.plot(kind='bar', ax=ax)
 #ax.set_xlabel('Category')
 #ax.set_ylabel(selected_metric)
-fig = px.bar(category_metrics, x='Categora', y=selected_metric)
+fig = px.bar(category_metrics, x='Category', y=selected_metric)
 
 st.pyplot(fig)
